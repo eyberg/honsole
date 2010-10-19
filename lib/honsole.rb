@@ -1,5 +1,26 @@
-puts 'test'
+puts 'stest'
 
+module Heroku::Command
+  class App < Base
+
+    def honsole
+      puts 'lla'
+    end
+
+  end
+end
+
+=begin
+class Heroku::Command::Honsole < Heroku::Command::Base
+
+  def index
+    puts 'test'
+  end
+
+end
+=end
+
+=begin
 module Heroku::Command
 
   class App
@@ -14,6 +35,7 @@ module Heroku::Command
 
   end
 end
+=end
 
 =begin
 module Heroku::Command
