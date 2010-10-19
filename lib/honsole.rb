@@ -1,7 +1,3 @@
-require "rubygems"
-require "highline/import"
-require "pp"
-
 module Heroku::Command
   class App < Base
 
@@ -15,8 +11,7 @@ module Heroku::Command
 
         display "Ruby console for #{app}.#{heroku.host}"
 
-        mlines = ask( ">>",
-                      lambda { |ans| ans} ) do |q|
+        mlines = ask( ">>", lambda { |ans| ans} ) do |q|
           q.gather = ""
         end.join(";")
 

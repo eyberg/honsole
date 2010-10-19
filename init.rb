@@ -1,3 +1,7 @@
+require "rubygems"
+require "highline/import"
+require "pp"
+
 require File.dirname(__FILE__) + '/lib/honsole'
 
 Heroku::Command::Help.group("Honsole") do |group|
