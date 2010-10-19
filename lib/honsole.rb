@@ -5,20 +5,11 @@ module Heroku::Command
 
     def honsole
       puts 'lla'
+      console
     end
 
   end
 end
-
-=begin
-class Heroku::Command::Honsole < Heroku::Command::Base
-
-  def index
-    puts 'test'
-  end
-
-end
-=end
 
 =begin
 module Heroku::Command
