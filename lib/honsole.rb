@@ -1,3 +1,7 @@
+require "rubygems"
+require "highline/import"
+require "pp"
+
 module Heroku::Command
   class App < Base
 
@@ -10,15 +14,24 @@ module Heroku::Command
         console_history_read(app)
 
         display "Ruby console for #{app}.#{heroku.host}"
-        while cmd = Readline.readline('>> ')
+
+        mlines = ask( ">>",
+                      lambda { |ans| ans} ) do |q|
+          q.gather = ""
+        end.join(";")
+
+        cmd = mlines
+
+        #while cmd = Readline.readline('>> ')
           unless cmd.nil? || cmd.strip.empty?
-            cmd = cmd.gsub("\n", ";")
             console_history_add(app, cmd)
             break if cmd.downcase.strip == 'exit'
             display console.run(cmd)
           end
-        end
+        #end
+
       end
+
     end
 
   end
