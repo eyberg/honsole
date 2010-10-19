@@ -11,7 +11,7 @@ module Heroku::Command
 
         display "Ruby console for #{app}.#{heroku.host}"
 
-        mlines = ask( ">>", lambda { |ans| ans} ) do |q|
+        mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
           q.gather = ""
         end.join(";")
 

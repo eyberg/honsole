@@ -1,5 +1,11 @@
 require "rubygems"
-require "highline/import"
+
+begin
+  require "highline/import"
+rescue
+  puts 'fuuu'
+end
+
 require "pp"
 
 require File.dirname(__FILE__) + '/lib/honsole'
