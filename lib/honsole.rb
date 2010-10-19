@@ -8,6 +8,22 @@ module Heroku::Command
       console
     end
 
+ 
+    def console_session(app)
+      heroku.console(app) do |console|
+        console_history_read(app)
+
+        display "Ruby t console for #{app}.#{heroku.host}"
+        while cmd = Readline.readline('>> ')
+          unless cmd.nil? || cmd.strip.empty?
+            console_history_add(app, cmd)
+            break if cmd.downcase.strip == 'exit'
+            display console.run(cmd)
+          end
+        end
+      end
+    end
+
   end
 end
 
