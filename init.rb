@@ -3,10 +3,8 @@ require "rubygems"
 begin
   require "highline/import"
 rescue
-  puts 'fuuu'
+  puts "fuuu\n\tyou need the highline"
 end
-
-require "pp"
 
 require File.dirname(__FILE__) + '/lib/honsole'
 
