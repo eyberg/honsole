@@ -16,6 +16,11 @@ downloading at the moment since it's 100% untested.
   sudo gem install highline --no-ri --no-rdoc
 
 ####Usage
+  you'll need herocutter:
+
+  heroku plugins:install git://github.com/hone/heroku_herocutter.git
+
+
   heroku plugins:install honsole
   (for now you have to press enter after pasting in the block)
 
