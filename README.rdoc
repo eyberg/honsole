@@ -18,3 +18,6 @@ downloading at the moment since it's 100% untested.
 ####Usage
   heroku plugins:install honsole
   (for now you have to press enter after pasting in the block)
+
+####Tests
+  need some mothah fucking tests!!?!?!
