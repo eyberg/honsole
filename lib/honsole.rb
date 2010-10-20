@@ -15,9 +15,14 @@ module Heroku::Command
     end
 
     def gather_some_shit
-      mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
-        q.gather = ""
-      end.join(";")
+      begin
+        mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
+          q.gather = ""
+        end.join(";")
+      rescue
+        puts "probably got a ctrl-d -- should exit only on EOF exception"
+        exit
+      end
     end
 
     # overrriding the console session
