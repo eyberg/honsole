@@ -31,6 +31,7 @@ module Heroku::Command
         end
       end
 
+      # ensure our block of code is stripped of newlines
       return block.gsub("\n", ";")
     end
 
@@ -50,9 +51,6 @@ END
     def gather_some_shit
       begin
         stuff = get_some_shit
-        #mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
-        #  q.gather = ""
-        #end.join(";")
       rescue
         puts "probably got a ctrl-d -- should exit only on EOF exception"
         exit
