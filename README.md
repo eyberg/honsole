@@ -13,16 +13,14 @@ downloading at the moment since it's 100% untested.
   Remember kids -- You Use -- You Lose!
 
 ####Install
-  sudo gem install highline --no-ri --no-rdoc
-
-####Usage
   you'll need herocutter:
 
   heroku plugins:install git://github.com/hone/heroku_herocutter.git
+  heroku plugins:install git://github.com/feydr/honsole.git
 
+####Usage
 
-  heroku plugins:install honsole
-  (for now you have to press enter after pasting in the block)
+  heroku honsole
 
 ####Tests
   need some mothah fucking tests!!?!?!
