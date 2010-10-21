@@ -1,4 +1,4 @@
-banner =<<END
+@banner =<<END
  __                             __        
 |  |--.-----.-----.-----.-----.|  |.-----.
 |     |  _  |     |__ --|  _  ||  ||  -__|
@@ -9,7 +9,7 @@ module Heroku::Command
   class App < Base
 
     def honsole
-      puts "\033[1m\033[31m #{banner} \033[0m"
+      puts "\033[1m\033[31m #{@banner} \033[0m"
       console
     end
 
