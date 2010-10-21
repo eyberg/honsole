@@ -5,12 +5,11 @@ banner =<<END
 |__|__|_____|__|__|_____|_____||__||_____|
 END
 
-puts "\033[1m\033[31m #{banner} \033[0m"
-
 module Heroku::Command
   class App < Base
 
     def honsole
+      puts "\033[1m\033[31m #{banner} \033[0m"
       console
     end
 
@@ -25,6 +24,9 @@ module Heroku::Command
       end
     end
 
+    # do not want to override this ... only when you issue the honsole
+    # should it override... hrm.
+    #
     # overrriding the console session
     # still need to put an enter but better than ctrl-d and better than
     # no support at all
