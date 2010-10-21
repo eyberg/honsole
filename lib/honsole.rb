@@ -1,6 +1,38 @@
 module Heroku::Command
   class App < Base
 
+    # we are betting that heroku will keep scope for us -- we just need
+    # to ensure our blocks are sent at the same time
+    def get_some_shit
+      stack = 0
+
+      block = ""
+
+      while true
+        print "> "
+        code = gets
+        break if code.nil?
+        begin
+          block += code
+
+          ftokens = code.match(/do|\{/)
+          if !ftokens.nil? then
+            stack += ftokens.size
+          end
+
+          etokens = code.match(/end|\}/)
+          if !etokens.nil? then
+            stack -= etokens.size
+          end
+
+          break if stack.eql? 0
+        rescue Exception
+          puts $!
+        end
+      end
+
+      return block.gsub("\n", ";")
+    end
 
     def honsole
 
@@ -17,13 +49,16 @@ END
 
     def gather_some_shit
       begin
-        mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
-          q.gather = ""
-        end.join(";")
+        stuff = get_some_shit
+        #mlines = HighLine.ask( ">>", lambda { |ans| ans} ) do |q|
+        #  q.gather = ""
+        #end.join(";")
       rescue
         puts "probably got a ctrl-d -- should exit only on EOF exception"
         exit
       end
+
+      return stuff
     end
 
     # do not want to override this ... only when you issue the honsole
