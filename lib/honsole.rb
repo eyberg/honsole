@@ -11,7 +11,7 @@ module Heroku::Command
       while true
         print "> "
         code = gets
-        break if code.nil?
+        exit if code.nil?
         begin
           block += code
 
@@ -24,9 +24,6 @@ module Heroku::Command
           if !etokens.nil? then
             stack -= etokens.size
           end
-
-          # catch ctrl-d?
-          break if code.nil?
 
           break if stack.eql? 0
         rescue Exception
