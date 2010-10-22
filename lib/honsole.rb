@@ -25,6 +25,9 @@ module Heroku::Command
             stack -= etokens.size
           end
 
+          # catch ctrl-d?
+          break if code.nil?
+
           break if stack.eql? 0
         rescue Exception
           puts $!
